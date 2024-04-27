@@ -1,6 +1,8 @@
 # magnifiedIV_r
 magnifiedIV to run a group or weight-based magnified instrumental variables estimator Use magnifiedIV With (In) R Software
 
+A R Software package for running Magnified IV/SLATE estimation Use magnifiedIV
+
 Olah Data Semarang
 
 WA : +6285227746673 (085227746673)
