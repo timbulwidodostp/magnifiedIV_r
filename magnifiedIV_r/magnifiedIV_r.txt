@@ -1,0 +1,32 @@
+# Olah Data Semarang
+# WhatsApp : +6285227746673
+# IG : @olahdatasemarang_
+# magnifiedIV to run a group or weight-based magnified instrumental variables estimator Use magnifiedIV With (In) R Software
+# A R Software package for running Magnified IV/SLATE estimation Use magnifiedIV
+install.packages("remotes")
+remotes::install_github("NickCH-K/MagnifiedIV")
+install.packages("carData")
+install.packages("readxl")
+install.packages("httr")
+library("MagnifiedIV")
+library("carData")
+library("readxl")
+library("httr")
+# Import Data Excel Into R From Github Olah Data Semarang (timbulwidodostp)
+github_link <- "https://github.com/timbulwidodostp/magnifiedIV_r/raw/main/magnifiedIV_r/magnifiedIV_r.xlsx"
+temp_file <- tempfile(fileext = ".xlsx")
+req <- GET(github_link, 
+# authenticate using GITHUB_PAT
+authenticate(Sys.getenv("GITHUB_PAT"), ""),
+# write result to disk
+write_disk(path = temp_file))
+magnifiedIV_r <- readxl::read_excel(temp_file)
+magnifiedIV<-magnifiedIV(log(packs)~log(rprice)+log(rincome)|log(rincome)+tdiff+I(tax/cpi),data=magnifiedIV_r,ngroups=5,grouping='groupCF',
+groupformula=list(log(rprice)~tdiff|I(tax/cpi)+population+taxs,log(rprice)~I(tax/cpi)|tdiff+population+taxs))
+summary(magnifiedIV)
+# magnifiedIV to run a group or weight-based magnified instrumental variables estimator Use magnifiedIV With (In) R Software
+# A R Software package for running Magnified IV/SLATE estimation Use magnifiedIV
+# Olah Data Semarang
+# WhatsApp : +6285227746673
+# IG : @olahdatasemarang_
+# Finished
